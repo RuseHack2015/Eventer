@@ -7,8 +7,8 @@ public class Tag {
 
 	private String name;
 	private static List<String> allTags;
-	private List<String> taggedEvents = new ArrayList<String>();
 	private List<String> taggedOrganisations = new ArrayList<String>();
+	private List<String> taggedEvents = new ArrayList<String>();
 
 	public static List<String> getAllTags() {
 		return allTags;
