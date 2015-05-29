@@ -94,12 +94,25 @@ public class User {
 		this.avatar = avatar;
 	}
 
+	public String getUser() {
+		return name;
+	}
+
 	public void setUser(String name) {
 		this.name = name;
 	}
 
-	public String getUser() {
-		return name;
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public void visitEvent(String event)
+	{
+		visitedEvents.add(event);
 	}
 
 	public void visitTag(String tag) {
@@ -110,14 +123,6 @@ public class User {
 		} else {
 			visitedTags.put(tag, 1);
 		}
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
 	}
 
 	public void visitOrganisation(String organisation) {

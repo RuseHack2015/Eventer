@@ -18,6 +18,10 @@ public class Tag {
 		Tag.allTags = allTags;
 	}
 
+	public static void addTag(String tag) {
+		allTags.add(tag);
+	}
+
 	public Tag(String name) {
 		this.name = name;
 	}
