@@ -8,8 +8,8 @@ import java.util.List;
 public class Event {
 
 	private String name, organisation, description;
-	private Date begining, end;
 	private List<String> tags = new ArrayList<String>();
+	private Date begining, end;
 	private Image banner;
 
 	public Event(String name) {

@@ -7,8 +7,8 @@ import com.eventer.objects.Event;
 import com.eventer.objects.User;
 
 public class UserController {
-	public void attendEvent(String user, String event) {
-		/*User curUser = getUserFromDB(user);
+	public void attendEvent(String user, String event) {/*
+		User curUser = getUserFromDB(user);
 		Event curEvent = getEventFromDB(event);
 		curUser.visitEvent(event);
 		curUser.visitOrganisation(curEvent.getOrganisation());

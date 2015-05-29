@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class User {
 
-	private String name, email, gender, password;
+	private String name, password, email, gender;
 	private Map<String, Integer> visitedTags = new HashMap<String, Integer>();
 	private Map<String, Integer> visitedOrganisations = new HashMap<String, Integer>();
 	private List<String> followedTags = new ArrayList<String>();

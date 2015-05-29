@@ -7,8 +7,8 @@ import java.util.List;
 public class Organisation {
 
 	private String name, phone1, phone2, adress, email, info;
-	private List<String> tags = new ArrayList<String>();
 	private List<String> events = new ArrayList<String>();
+	private List<String> tags = new ArrayList<String>();
 	private Image logo;
 
 	public Organisation(String name) {
