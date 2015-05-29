@@ -9,4 +9,8 @@ public class Connection {
 	public void printData() {
 		u.printName();
 	}
+	
+	public void print(){
+		System.out.println(u.getUser());
+	}
 }
