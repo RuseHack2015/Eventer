@@ -2,6 +2,7 @@ package com.eventer.objectControllers;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,27 +27,47 @@ public class UserController {
 		int score = 0;
 		List<String> tags = event.getTags();
 		String curTag;
-		String curOrg=event.getOrganisation();
+		String curOrg = event.getOrganisation();
 		Map<String, Integer> vT = user.getVisitedTags();
 		Map<String, Integer> vO = user.getVisitedOrganisations();
 		List<String> fT = user.getFollowedTags();
 		for (int i = 0; i < tags.size(); i++) {
 			curTag = tags.get(i);
-			if (vT.containsKey(curTag))
-			{
-				score+=vT.get(curTag);
+			if (vT.containsKey(curTag)) {
+				score += vT.get(curTag);
 			}
-			if (fT.contains(curTag))
-			{
-				score+=10;
+			if (fT.contains(curTag)) {
+				score += 10;
 			}
 		}
-		score/=tags.size();
-		if (vO.containsKey(curOrg))
-		{
-			score+=vO.get(curOrg);
+		score /= tags.size();
+		if (vO.containsKey(curOrg)) {
+			score += vO.get(curOrg);
 		}
 		return score;
+	}
+
+	public List<Event> getAllAppropriateEvents(User curUser)
+	{
+		List<Event> allEvents = getAllEventsFromDB();
+		List<String> fT = curUser.getFollowedTags();
+		List<String> tags;
+		List<Event> appEvents = new ArrayList<Event>();
+		Date curDate = new Date();
+		for (int i=0;i<allEvents.size();i++)
+		{
+			tags = allEvents.get(i).getTags();
+			if (allEvents.get(i).getEnd().getTime()<curDate.getTime()) break;
+			for (int j=0;j<tags.size();j++)
+			{
+				if (fT.contains(tags.get(i)))
+				{
+					appEvents.add(allEvents.get(i));
+					break;
+				}
+			}
+		}
+		return appEvents;
 	}
 
 	public List<String> suggestEvents(String user) {
@@ -60,7 +81,7 @@ public class UserController {
 			curPair.score=giveScore(curEvents.get(i), curUser);
 			curPair.name=curEvents.get(i).getName();
 		}
-		Collections.sort(scores);
+		Collections.sort(scores, Collections.reverseOrder());
 		List<String> result = new ArrayList<String>();
 		for (int i = 0; i < scores.size(); i++) {
 			result.add(scores.get(i).name);
