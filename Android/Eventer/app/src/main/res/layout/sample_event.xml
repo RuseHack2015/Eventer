@@ -1,0 +1,19 @@
+<com.example.simeon.eventer.Views.EventView
+    android:background="#ccc"
+    android:paddingLeft="20dp" android:paddingBottom="40dp"
+        app:exampleDimension="24sp" app:exampleColor="#33b5e5" app:exampleString="Hello, Event"
+        app:exampleDrawable="@android:drawable/ic_menu_add"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res/com.example.simeon.eventer.Views"
+        android:layout_width="wrap_content" android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+
+        />
+
+
+
+</com.example.simeon.eventer.Views.EventView>
+
