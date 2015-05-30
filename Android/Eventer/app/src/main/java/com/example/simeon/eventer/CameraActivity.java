@@ -1,47 +1,48 @@
 package com.example.simeon.eventer;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
-import com.eventer.dbEvents.LoadEvents;
 
+public class CameraActivity extends Activity {
 
-public class WelcomeScreen extends ActionBarActivity {
-
-    private Button cameraButton;
-    private Button loggin;
+    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
+    private Uri fileUri;
+    private ImageView image;
+    private Button submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_screen);
-        cameraButton = (Button) findViewById(R.id.cameraButton);
-        loggin = (Button) findViewById(R.id.logginButton);
-        cameraButton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_camera);
+        image = (ImageView )findViewById(R.id.imageView);
+        submitButton = (Button) findViewById(R.id.submitButton);
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        // start the image capture Intent
+        startActivityForResult(intent,0);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(WelcomeScreen.this, CameraActivity.class);
-                startActivity(i);
-            }
-        });
-        loggin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EventDB db = new EventDB();
-                db.
+
             }
         });
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_welcome_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_camera, menu);
         return true;
     }
 
@@ -59,4 +60,11 @@ public class WelcomeScreen extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        Bitmap bp = (Bitmap) data.getExtras().get("data");
+        image.setImageBitmap(bp);
+    }
+
 }

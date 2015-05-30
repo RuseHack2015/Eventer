@@ -3,4 +3,10 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="take_picture">Take picture</string>
+    <string name="submit">Submit</string>
+    <string name="title_activity_galery">GaleryActivity</string>
+    <string name="galery">Galery</string>
+    <string name="loggin">Loggin</string>
 </resources>
