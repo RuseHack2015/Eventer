@@ -15,6 +15,7 @@ public class UserController {
 		List<String> tags = curEvent.getTags();
 		for (int i = 0; i < tags.size(); i++) {
 			curUser.visitTag(tags.get(i));
+		
 		}*/
 	}
 }
