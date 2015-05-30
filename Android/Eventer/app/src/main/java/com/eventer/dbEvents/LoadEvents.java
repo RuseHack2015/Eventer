@@ -31,7 +31,7 @@ public class LoadEvents {
             Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(getAllEvents);
             readEvent(resultSet);
-        }catch (SQLException e){
+        }catch (ClassNotFoundException | SQLException e){
             e.printStackTrace();
         }finally {
             if (connection !=null){

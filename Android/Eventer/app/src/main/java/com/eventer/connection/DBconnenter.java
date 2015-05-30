@@ -10,7 +10,7 @@ import java.util.Properties;
  */
 public class DBconnenter {
 
-    private  String  dbUrl = "";
+    private  String  dbUrl = "jdbc:mysql://www.strappable.com/strappab_wp853'";
     private String userName ="strappab_dev1";
     private String password= "Jumpstart2015";
 

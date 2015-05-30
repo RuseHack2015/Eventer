@@ -41,37 +41,8 @@ public class EventView extends View {
     }
 
     private void init(AttributeSet attrs, int defStyle) {
-        // Load attributes
-        final TypedArray a = getContext().obtainStyledAttributes(
-                attrs, R.styleable.EventView, defStyle, 0);
 
-        mExampleString = a.getString(
-                R.styleable.EventView_exampleString);
-        mExampleColor = a.getColor(
-                R.styleable.EventView_exampleColor,
-                mExampleColor);
-        // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
-        // values that should fall on pixel boundaries.
-        mExampleDimension = a.getDimension(
-                R.styleable.EventView_exampleDimension,
-                mExampleDimension);
-
-        if (a.hasValue(R.styleable.EventView_exampleDrawable)) {
-            mExampleDrawable = a.getDrawable(
-                    R.styleable.EventView_exampleDrawable);
-            mExampleDrawable.setCallback(this);
-        }
-
-        a.recycle();
-
-        // Set up a default TextPaint object
-        mTextPaint = new TextPaint();
-        mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mTextPaint.setTextAlign(Paint.Align.LEFT);
-
-        // Update TextPaint and text measurements from attributes
-        invalidateTextPaintAndMeasurements();
-    }
+     }
 
     private void invalidateTextPaintAndMeasurements() {
         mTextPaint.setTextSize(mExampleDimension);

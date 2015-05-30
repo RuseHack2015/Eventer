@@ -8,21 +8,32 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.eventer.dbEvents.LoadEvents;
+
 
 public class WelcomeScreen extends ActionBarActivity {
 
     private Button cameraButton;
+    private Button loggin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_screen);
         cameraButton = (Button) findViewById(R.id.cameraButton);
+        loggin = (Button) findViewById(R.id.logginButton);
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(WelcomeScreen.this, CameraActivity.class);
                 startActivity(i);
+            }
+        });
+        loggin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EventDB db = new EventDB();
+                db.
             }
         });
     }

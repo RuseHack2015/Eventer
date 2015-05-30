@@ -41,36 +41,7 @@ public class PictureView extends View {
     }
 
     private void init(AttributeSet attrs, int defStyle) {
-        // Load attributes
-        final TypedArray a = getContext().obtainStyledAttributes(
-                attrs, R.styleable.PictureView, defStyle, 0);
 
-        mExampleString = a.getString(
-                R.styleable.PictureView_exampleString);
-        mExampleColor = a.getColor(
-                R.styleable.PictureView_exampleColor,
-                mExampleColor);
-        // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
-        // values that should fall on pixel boundaries.
-        mExampleDimension = a.getDimension(
-                R.styleable.PictureView_exampleDimension,
-                mExampleDimension);
-
-        if (a.hasValue(R.styleable.PictureView_exampleDrawable)) {
-            mExampleDrawable = a.getDrawable(
-                    R.styleable.PictureView_exampleDrawable);
-            mExampleDrawable.setCallback(this);
-        }
-
-        a.recycle();
-
-        // Set up a default TextPaint object
-        mTextPaint = new TextPaint();
-        mTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mTextPaint.setTextAlign(Paint.Align.LEFT);
-
-        // Update TextPaint and text measurements from attributes
-        invalidateTextPaintAndMeasurements();
     }
 
     private void invalidateTextPaintAndMeasurements() {
