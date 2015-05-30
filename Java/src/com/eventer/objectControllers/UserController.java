@@ -72,7 +72,7 @@ public class UserController {
 
 	public List<String> suggestEvents(String user) {
 		User curUser = getUserFromDB(user);
-		List<Event> curEvents; = getAllAppropriateEvents(curUser);
+		List<Event> curEvents = getAllAppropriateEvents(curUser);
 		List<String> tags;
 		List<IntStringPair> scores = new ArrayList<IntStringPair>();
 		IntStringPair curPair;
