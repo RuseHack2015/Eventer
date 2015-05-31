@@ -28,5 +28,12 @@
         android:id="@+id/logginButton"
         android:layout_gravity="center_vertical" />
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="View events"
+        android:id="@+id/eventButton"
+        android:layout_gravity="center_vertical" />
+
 
 </LinearLayout>

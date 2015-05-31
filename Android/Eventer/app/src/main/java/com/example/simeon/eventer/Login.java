@@ -1,53 +1,38 @@
 package com.example.simeon.eventer;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
-import com.eventer.dbEvents.EventAsyncTask;
-import com.eventer.dbEvents.EventDB;
-
+import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class WelcomeScreen extends ActionBarActivity {
+public class Login extends ActionBarActivity {
 
-    private Button cameraButton;
+    private TextView userName;
+    private TextView password;
     private Button loggin;
-    private Button events;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome_screen);
-        cameraButton = (Button) findViewById(R.id.cameraButton);
+        setContentView(R.layout.activity_login);
+        userName = (TextView) findViewById(R.id.editUserName);
+        password = (TextView)findViewById(R.id.editPassword);
         loggin = (Button) findViewById(R.id.logginButton);
-        events = (Button) findViewById(R.id.eventButton);
-
-        cameraButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(WelcomeScreen.this, CameraActivity.class);
-                startActivity(i);
-            }
-        });
         loggin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                EventAsyncTask db = new EventAsyncTask(WelcomeScreen.this);
-                db.execute();
-            }
-        });
-
-        events.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
-                Intent i = new Intent(WelcomeScreen.this, EventActivity.class);
-                startActivity(i);
+                if(userName.getText().length() != 0 && password.getText().length() != 0){
+                Intent i = new Intent(Login.this, WelcomeScreen.class);
+                    startActivity(i);
+                }else {
+                    Toast.makeText(Login.this,"One or more Fields are empty",Toast.LENGTH_LONG);
+                }
             }
         });
     }
@@ -55,7 +40,7 @@ public class WelcomeScreen extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_welcome_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_login, menu);
         return true;
     }
 

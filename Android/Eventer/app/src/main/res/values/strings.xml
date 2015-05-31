@@ -8,5 +8,7 @@
     <string name="submit">Submit</string>
     <string name="title_activity_galery">GaleryActivity</string>
     <string name="galery">Galery</string>
-    <string name="loggin">Loggin</string>
+    <string name="loggin">Send sample request</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_event">EventActivity</string>
 </resources>
